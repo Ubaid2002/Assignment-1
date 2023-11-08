@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // CHECK IF THE BROWSER SUPPORTRS WEBRTC
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
+    {
+        //ACCESS THE USER'S CAMERA
+        naviogator.mediadevices.getUserMedia({video: true})
+        .then(function (stream)
+    {  
+        //GET THE VIDEO ELEMENT ON YOUR HTML PAGE
+        var videoElement = document.getElementById('video');
+        
+        //SET THE VIDEO STREAM AS THE SOURCE FOR THE VIDEO ELEMENT
+        videoElement.srcObject = stream;
+        
+        //PLAY THE VIDEO
+        videoelement.play();
+    })
+
+    .catch(function (error)
+    {
+        console.errr('error accesssing camera:' , error);
+    });
+    }
+
+    else{
+        console.error('WebRTC is not supported in this number');
+    }
+</script>
+</body>
+</html>
